@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.cqu.jcenterlib.AbsHandler;
 
@@ -13,12 +14,14 @@ public class MainActivity extends ActionBarActivity {
 
     private UpdateHandler mHanderl;
 
+    int r;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mHanderl = new UpdateHandler(this);
+        r=mHanderl.add(5,3);
+        DisplayToast(String.valueOf(r));
     }
 
     @Override
@@ -43,7 +46,7 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private static class UpdateHandler extends AbsHandler<MainActivity> {
+        private static class UpdateHandler extends AbsHandler<MainActivity> {
 
         public UpdateHandler(MainActivity mActivity) {
             super(mActivity);
@@ -53,6 +56,11 @@ public class MainActivity extends ActionBarActivity {
         protected void handleMessage(MainActivity mActivity, Message msg, Bundle mBundle) {
 
         }
+    }
+
+    public void DisplayToast(String str)
+    {
+        Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
     }
 
 }

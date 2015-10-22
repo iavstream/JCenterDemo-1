@@ -45,4 +45,10 @@ public abstract class AbsHandler<T extends Activity> extends Handler {
      */
     protected abstract void handleMessage(T mActivity, Message msg, Bundle mBundle);
 
+    public  int add(int a,int b)
+    {
+        return a+b;
+
+    }
+
 }
